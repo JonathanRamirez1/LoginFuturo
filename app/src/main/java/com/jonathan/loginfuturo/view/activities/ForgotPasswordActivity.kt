@@ -1,4 +1,4 @@
-package com.jonathan.loginfuturo.views
+package com.jonathan.loginfuturo.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,8 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.jonathan.loginfuturo.R
 import com.jonathan.loginfuturo.isValidEmail
-import com.jonathan.loginfuturo.isValidPassword
 import com.jonathan.loginfuturo.validate
 import kotlinx.android.synthetic.main.activity_forgot_password.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class ForgotPasswordActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.jonathan.loginfuturo.views
+package com.jonathan.loginfuturo.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

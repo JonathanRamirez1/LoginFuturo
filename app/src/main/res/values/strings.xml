@@ -13,6 +13,11 @@
     <string name="login_create_account">Create a new account</string>
     <string name="login_go_to_login">Go back to Login</string>
 
+    <!-- Bottom Navigation Menu -->
+    <string name="navigation_bottom_info">Info</string>
+    <string name="navigation_bottom_rates">Rates</string>
+    <string name="navigation_bottom_chat">Chat</string>
+
     <!-- Sign Up -->
     <string name="sign_up_email_is_no_valid">Email is not valid</string>
     <string name="sign_up_password_is_no_valid">Password should contain 1 lowercase, 1 uppercase,  1 special character and 8 characters length at least.</string>

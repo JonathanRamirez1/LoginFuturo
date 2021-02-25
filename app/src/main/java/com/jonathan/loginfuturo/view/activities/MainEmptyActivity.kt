@@ -1,12 +1,10 @@
-package com.jonathan.loginfuturo.views.activities
+package com.jonathan.loginfuturo.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.jonathan.loginfuturo.MainActivity
-import com.jonathan.loginfuturo.views.LoginActivity
-import com.jonathan.loginfuturo.views.SignUpActivity
 
 class MainEmptyActivity : AppCompatActivity() {
 

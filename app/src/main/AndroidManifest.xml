@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jonathan.loginfuturo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,7 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity
-            android:name=".views.activities.MainEmptyActivity"
+            android:name=".view.activities.MainEmptyActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,19 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.FuturoActivity">
+        <activity android:name=".view.activities.FuturoActivity">
         </activity>
         <activity
-            android:name=".views.LoginActivity"
+            android:name=".view.activities.LoginActivity"
             android:theme="@style/NoPreview"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
-            android:name=".views.SignUpActivity"
+            android:name=".view.activities.SignUpActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
-            android:name=".views.ForgotPasswordActivity"
+            android:name=".view.activities.ForgotPasswordActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
