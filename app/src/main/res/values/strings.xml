@@ -22,5 +22,7 @@
     <string name="sign_up_email_is_no_valid">Email is not valid</string>
     <string name="sign_up_password_is_no_valid">Password should contain 1 lowercase, 1 uppercase,  1 special character and 8 characters length at least.</string>
     <string name="sign_up_confirm_password_is_no_valid">Confirm Password does not match with Password</string>
+    
+    <string name="chat_edittext_message_hint">Type here a message...</string>
 
 </resources>
