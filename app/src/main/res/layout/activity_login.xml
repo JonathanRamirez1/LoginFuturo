@@ -87,6 +87,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewForgotPassword"/>
 
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/buttonLogInFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogInGoogle" />
+
     <Button
         android:id="@+id/buttonSignUpLogin"
         android:layout_width="match_parent"
@@ -98,7 +111,7 @@
         android:textSize="@dimen/login_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogInGoogle" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogInFacebook" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

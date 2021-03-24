@@ -1,8 +1,12 @@
 package com.jonathan.loginfuturo.view.adapters
 
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.loginfuturo.R
 import com.jonathan.loginfuturo.Utils.CircleTransform
@@ -33,7 +37,7 @@ class ChatAdapter(val items : List<Message>, val userId : String) : RecyclerView
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(holder.itemViewType) {
+        when (holder.itemViewType) {
             MY_MESSAGE -> (holder as ViewHolderRight).bind(items[position])
             GLOBAL_MESSAGE -> (holder as ViewHolderLeft).bind(items[position])
         }
@@ -41,7 +45,8 @@ class ChatAdapter(val items : List<Message>, val userId : String) : RecyclerView
 
     /** Se usa este metodo cuando hay diferente tipo de item **/
 
-    override fun getItemViewType(position: Int): Int  = if (items[position].authorId == userId) MY_MESSAGE else GLOBAL_MESSAGE
+    override fun getItemViewType(position: Int): Int  =
+        if (items[position].authorId == userId) MY_MESSAGE else GLOBAL_MESSAGE
 
 
     class ViewHolderRight(itemView : View) : RecyclerView.ViewHolder(itemView) {
@@ -49,10 +54,17 @@ class ChatAdapter(val items : List<Message>, val userId : String) : RecyclerView
         fun bind(message: Message) = with(itemView) {
             textViewMessageRight.text = message.message
             textViewTimeRight.text = SimpleDateFormat("hh:mm").format(message.sendAt)
-            Picasso.get().load(message.profileImageUrl).resize(100, 100)
-                .centerCrop()
-                .transform(CircleTransform())
-                .into(imageViewProfileRight)
+            if (message.profileImageUrl.isEmpty()) {
+                Picasso.get().load(R.drawable.person).resize(100, 100)
+                    .centerCrop()
+                    .transform(CircleTransform())
+                    .into(imageViewProfileRight)
+            } else {
+                Picasso.get().load(message.profileImageUrl).resize(100, 100)
+                    .centerCrop()
+                    .transform(CircleTransform())
+                    .into(imageViewProfileRight)
+            }
         }
     }
 
@@ -61,10 +73,17 @@ class ChatAdapter(val items : List<Message>, val userId : String) : RecyclerView
         fun bind(message: Message) = with(itemView) {
             textViewMessageLeft.text = message.message
             textViewTimeLeft.text = SimpleDateFormat("hh:mm").format(message.sendAt)
-            Picasso.get().load(message.profileImageUrl).resize(100, 100)
-                .centerCrop()
-                .transform(CircleTransform())
-                .into(imageViewProfileLeft)
+            if (message.profileImageUrl.isEmpty()) {
+                Picasso.get().load(R.drawable.person).resize(100, 100)
+                    .centerCrop()
+                    .transform(CircleTransform())
+                    .into(imageViewProfileLeft)
+            } else {
+                Picasso.get().load(message.profileImageUrl).resize(100, 100)
+                    .centerCrop()
+                    .transform(CircleTransform())
+                    .into(imageViewProfileLeft)
+            }
         }
     }
 }

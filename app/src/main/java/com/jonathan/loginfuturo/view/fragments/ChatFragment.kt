@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
 import com.jonathan.loginfuturo.R
+import com.jonathan.loginfuturo.TotalMessagesEvent
+import com.jonathan.loginfuturo.Utils.RxBus
 import com.jonathan.loginfuturo.models.Message
 import com.jonathan.loginfuturo.view.adapters.ChatAdapter
 import kotlinx.android.synthetic.main.fragment_chat.view.*
@@ -77,7 +79,8 @@ class ChatFragment : Fragment() {
         _view.buttonSend.setOnClickListener {
             val messageText = _view.editTextMessage.text.toString()
             if (messageText.isNotEmpty()) {
-                val message = Message(currentUser.uid, messageText, currentUser.photoUrl.toString(), Date())
+                val photo = currentUser.photoUrl?.let { currentUser.photoUrl.toString() } ?: run { "" }
+                val message = Message(currentUser.uid, messageText, photo, Date())
                 saveMessage(message)
                 // Asi se borra el texto en el editText cuando se ha enviado el mensaje
                 _view.editTextMessage.setText("")
@@ -117,13 +120,15 @@ class ChatFragment : Fragment() {
                     messageList.addAll(messages.asReversed())
                     chatAdapter.notifyDataSetChanged()
                     _view.recyclerView.smoothScrollToPosition(messageList.size)
+                    RxBus.publish(TotalMessagesEvent(messageList.size)) //Envia un evento (TotalMessagesEvent) cuando se ejecute y todos lo que esten escuchando (subscribeTotalMessagesEventBusReactiveStyle()
+                                                                       // del InforFragment) a eventos del mismo tipo se ejecuta lo que esta en el codigo
                 }
             }
         })
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         chatSubscription?.remove()
-        super.onDestroy()
+        super.onDestroyView()
     }
 }
